@@ -14,9 +14,15 @@ public class Endpoints {
 	public String getHelloWorld() {
 		return "Hello World";
 	}
-	
+
 	@GetMapping("/teste/lol")
-	public String getHelloRoland(@RequestParam(name="name") String championName, @RequestParam String race) {
+	public String getHelloRoland(@RequestParam(name = "name") String championName, @RequestParam String race) {
+		return "Name: " + championName + " Race:" + race;
+	}
+
+	@GetMapping("/lol")
+	public String getHelloRoland2(@RequestParam(name = "name") String championName,
+			@RequestParam(defaultValue = "não reconhecido") String race) {
 		return "Name: " + championName + " Race:" + race;
 	}
 
