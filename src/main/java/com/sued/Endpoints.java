@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,24 +20,29 @@ public class Endpoints {
 	}
 
 	@GetMapping("/teste/lol")
-	public String getParam(@RequestParam(name = "name") String championName, @RequestParam String race) {
+	public String getParamTeste(@RequestParam(name = "name") String championName, @RequestParam String race) {
 		return "Name: " + championName + " Race:" + race;
 	}
 
 	@GetMapping("/lol")
-	public String getParam2(@RequestParam(name = "name") String championName,
+	public String getParam(@RequestParam(name = "name") String championName,
 			@RequestParam(defaultValue = "não reconhecido") String race) {
 		return "Name: " + championName + " Race:" + race;
 	}
 	
 	@GetMapping("/lol/map")
-	public String getParamList(@RequestParam Map<String, String> parameters) {
+	public String getParamMap(@RequestParam Map<String, String> parameters) {
 		return "Parâmetros " + parameters.entrySet();
 	}
 	
 	@GetMapping("/lol/list")
-	public String getParamList2(@RequestParam List<String> name) {
+	public String getParamList(@RequestParam List<String> name) {
 		return "Names:" + name;
-	}	
+	}
+	
+	@GetMapping("/lol/pathvariable/{name}")
+	public String getParamPathVariable(@PathVariable String name) {
+		return "Name:" + name;
+	}
 
 }
