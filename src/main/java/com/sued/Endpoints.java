@@ -1,5 +1,6 @@
 package com.sued;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +29,14 @@ public class Endpoints {
 		return "Name: " + championName + " Race:" + race;
 	}
 	
-	@GetMapping("/lol/nparams")
+	@GetMapping("/lol/map")
 	public String getParamList(@RequestParam Map<String, String> parameters) {
 		return "Parâmetros " + parameters.entrySet();
+	}
+	
+	@GetMapping("/lol/list")
+	public String getParamList2(@RequestParam List<String> name) {
+		return "Names:" + name;
 	}	
 
 }
