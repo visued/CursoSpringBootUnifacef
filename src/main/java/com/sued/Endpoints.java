@@ -54,7 +54,14 @@ public class Endpoints {
 	public ResponseEntity postProfessor(@RequestBody Professor professor) {
 		//validando dados
 		//salvando no banco
-		return ResponseEntity.status(HttpStatus.OK).body(professor);
+		professor.setObservacao("Só deus salva");
+		
+		RetornoPadrao padrao = new RetornoPadrao();
+		
+		padrao.setStatus(1000);
+		padrao.setInformacao("Professor salvo com sucesso");
+		
+		return ResponseEntity.status(HttpStatus.OK).body(padrao);
 	}
 	
 
