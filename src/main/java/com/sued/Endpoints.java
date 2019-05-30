@@ -40,8 +40,8 @@ public class Endpoints {
 		return "Names:" + name;
 	}
 	
-	@GetMapping("/lol/pathvariable/{name}")
-	public String getParamPathVariable(@PathVariable String name) {
+	@GetMapping({"/lol/pathvariable/{name}", "/lol/pathvariable/"})
+	public String getParamPathVariable(@PathVariable(required = false) String name) {
 		return "Name:" + name;
 	}
 
